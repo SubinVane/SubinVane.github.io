@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使程序运行更高效 - 原型模式 | Vane&#39;s Blog</title>
+    <meta name="description" content="Today does not walk, will have to run tomorrow.">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.d116525a.css" as="style"><link rel="preload" href="/assets/js/app.6076c5c0.js" as="script"><link rel="preload" href="/assets/js/3.2aa7e3c4.js" as="script"><link rel="preload" href="/assets/js/1.9e3813a1.js" as="script"><link rel="preload" href="/assets/js/13.d1ff026b.js" as="script"><link rel="prefetch" href="/assets/js/10.aa18bef1.js"><link rel="prefetch" href="/assets/js/11.f8a77115.js"><link rel="prefetch" href="/assets/js/12.614849a0.js"><link rel="prefetch" href="/assets/js/14.e85a2f3c.js"><link rel="prefetch" href="/assets/js/15.9a5e7417.js"><link rel="prefetch" href="/assets/js/16.1605e302.js"><link rel="prefetch" href="/assets/js/17.e9bb63d9.js"><link rel="prefetch" href="/assets/js/18.edeba816.js"><link rel="prefetch" href="/assets/js/19.9817dece.js"><link rel="prefetch" href="/assets/js/4.08b79b89.js"><link rel="prefetch" href="/assets/js/5.e493c146.js"><link rel="prefetch" href="/assets/js/6.d5d69e99.js"><link rel="prefetch" href="/assets/js/7.c3b8d12d.js"><link rel="prefetch" href="/assets/js/8.734801b4.js"><link rel="prefetch" href="/assets/js/9.34412777.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d116525a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-146b4d24><div data-v-146b4d24><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-146b4d24 data-v-146b4d24><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-1e2a0cc0 data-v-146b4d24 data-v-146b4d24><h3 class="title" style="display:none;" data-v-1e2a0cc0 data-v-1e2a0cc0>Vane's Blog</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-1e2a0cc0 data-v-1e2a0cc0><input type="password" value="" data-v-1e2a0cc0> <span data-v-1e2a0cc0>Konck! Knock!</span> <button data-v-1e2a0cc0>OK</button></label> <div class="footer" style="display:none;" data-v-1e2a0cc0 data-v-1e2a0cc0><span data-v-1e2a0cc0><i class="iconfont reco-theme" data-v-1e2a0cc0></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-1e2a0cc0>vuePress-theme-reco</a></span> <span data-v-1e2a0cc0><i class="iconfont reco-copyright" data-v-1e2a0cc0></i> <a data-v-1e2a0cc0><span data-v-1e2a0cc0>Vane</span>
+            
+          <span data-v-1e2a0cc0>2018 - </span>
+          2020
+        </a></span></div></div> <div class="hide" data-v-146b4d24><header class="navbar" data-v-146b4d24><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Vane's Blog" class="logo"> <span class="site-name">Vane's Blog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/重新认识系列/" class="nav-link"><i class="iconfont undefined"></i>
+  重新认识系列
+</a></li><li class="dropdown-item"><!----> <a href="/categories/源码解析/" class="nav-link"><i class="iconfont undefined"></i>
+  源码解析
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/SubinVane" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/e60e15ee8006" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-146b4d24></div> <aside class="sidebar" data-v-146b4d24><div class="personal-info-wrapper" data-v-b038cec6><img src="avatar.jpeg" alt="author-avatar" class="personal-img" data-v-b038cec6> <h3 class="name" data-v-b038cec6>
+    Vane
+  </h3> <div class="num" data-v-b038cec6><div data-v-b038cec6><h3 data-v-b038cec6>8</h3> <h6 data-v-b038cec6>文章</h6></div> <div data-v-b038cec6><h3 data-v-b038cec6>6</h3> <h6 data-v-b038cec6>标签</h6></div></div> <hr data-v-b038cec6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/重新认识系列/" class="nav-link"><i class="iconfont undefined"></i>
+  重新认识系列
+</a></li><li class="dropdown-item"><!----> <a href="/categories/源码解析/" class="nav-link"><i class="iconfont undefined"></i>
+  源码解析
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/SubinVane" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/e60e15ee8006" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>使程序运行更高效 - 原型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#定义" class="sidebar-link">定义</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#原型模式的使用场景" class="sidebar-link">原型模式的使用场景</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#原型模式的uml类图" class="sidebar-link">原型模式的UML类图</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#原型模式的简单实现" class="sidebar-link">原型模式的简单实现</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#浅拷贝和深拷贝" class="sidebar-link">浅拷贝和深拷贝</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#总结" class="sidebar-link">总结</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/android/design-pattern/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#优点与缺点" class="sidebar-link">优点与缺点</a></li></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-1e2a0cc0 data-v-146b4d24><h3 class="title" style="display:none;" data-v-1e2a0cc0 data-v-1e2a0cc0>使程序运行更高效 - 原型模式</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-1e2a0cc0 data-v-1e2a0cc0><input type="password" value="" data-v-1e2a0cc0> <span data-v-1e2a0cc0>Konck! Knock!</span> <button data-v-1e2a0cc0>OK</button></label> <div class="footer" style="display:none;" data-v-1e2a0cc0 data-v-1e2a0cc0><span data-v-1e2a0cc0><i class="iconfont reco-theme" data-v-1e2a0cc0></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-1e2a0cc0>vuePress-theme-reco</a></span> <span data-v-1e2a0cc0><i class="iconfont reco-copyright" data-v-1e2a0cc0></i> <a data-v-1e2a0cc0><span data-v-1e2a0cc0>Vane</span>
+            
+          <span data-v-1e2a0cc0>2018 - </span>
+          2020
+        </a></span></div></div> <div data-v-146b4d24><main class="page"><div class="page-title" style="display:none;"><h1>使程序运行更高效 - 原型模式</h1> <hr> <div data-v-484a899e><i class="iconfont reco-account" data-v-484a899e><span data-v-484a899e>Vane</span></i> <i class="iconfont reco-date" data-v-484a899e><span data-v-484a899e>2020-05-25</span></i> <!----> <i class="iconfont reco-tag tags" data-v-484a899e><span class="tag-item" data-v-484a899e>
+      面试
+    </span><span class="tag-item" data-v-484a899e>
+      设计模式
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block tip"><p>原型模式是一个创建型的模式。原型二字表明了该模式应该有一个样板实例，用户从这个样板对象中复制处一个内部属性一致的对象，这个过程也就是我们俗称的“克隆”。被克隆的实例就是我们所称的“原型”，这个原型是可定制的。原型模式多用于创建复杂的或者构造耗时的实例，因为这种情况下，复制一个已经存在的实例可使程序运行更高效。</p></div> <h2 id="定义"><a href="#定义" aria-hidden="true" class="header-anchor">#</a> 定义</h2> <p>用原型实例指定创建对象的种类，并通过拷贝这些原型创建新的对象。</p> <h2 id="原型模式的使用场景"><a href="#原型模式的使用场景" aria-hidden="true" class="header-anchor">#</a> 原型模式的使用场景</h2> <ol><li>类初始化需要消耗非常多的资源，这个资源包括数据、硬件资源等，通过原型拷贝避免这些消耗。</li> <li>通过new产生一个对象需要非常繁琐的数据准备或访问权限，这时可以使用原型模式。</li> <li>一个对象需要提供给其他对象访问，而且各个调用者可能都需要修改其值时，可以考虑使用原型模式拷贝多个对象供调用者使用，即保护性拷贝。</li></ol> <p>需要注意的是，通过实现Cloneable 接口的原型模式在调用clone 函数构造实例时并不一定比通过new操作速度快，只有当通过new构造对象较为耗时或者说成本较高时，通过clone方法才能够获得效率上的提升。因此，在使用Cloneable 时需要考虑构建对象的成本以及做一些效率上的测试。当然，实现原型模式也不一定非要实现Cloneable 接口，也有其他的实现方式，本章将会对这些一一说明。</p> <h2 id="原型模式的uml类图"><a href="#原型模式的uml类图" aria-hidden="true" class="header-anchor">#</a> 原型模式的UML类图</h2> <p><img src="/images/design-pattern/prototype-mode.png" alt="prototypemode"></p> <ul><li>Client：客户端用户</li> <li>Prototype：抽象类或者接口，声明具备clone 能力</li> <li>ConcretePrototype：具体的原型类</li></ul> <h2 id="原型模式的简单实现"><a href="#原型模式的简单实现" aria-hidden="true" class="header-anchor">#</a> 原型模式的简单实现</h2> <p>下面以简单的文档拷贝为例来演示一下简单的原型模式，我们在这个例子中首先创建了一个文档对象，即WordDocument，这个文档中含有文字和图片。用户经过了很长时间的内容编辑后，打算对该文档做进一步的编辑，但是，这个编辑后的文档是否会被采用还不确定，因此，为了安全起见，用户需要将当前文档拷贝一份，然后再在文档副本上进行修改，这与《Effective Java》一书中提到的保护性拷贝有些类似，如此，这个原始文档就是我们上述所说的样板实例，也就是将要被“克隆”的对象，我们称之为原型：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * 文档类型，扮演的是ConcretePrototype角色，而cloneable是代表prototype角色
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WordDocument</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span> <span class="token punctuation">{</span>
+    <span class="token comment">//文本</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> mText<span class="token punctuation">;</span>
+    <span class="token comment">//图片名列表</span>
+    <span class="token keyword">private</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> mImages <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">WordDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;----WordDocument 构造函数----&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token class-name">WordDocument</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">WordDocument</span> doc <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">WordDocument</span><span class="token punctuation">)</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            doc<span class="token punctuation">.</span>mText <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mText<span class="token punctuation">;</span>
+            doc<span class="token punctuation">.</span>mImages <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mImages<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> doc<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mText<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span> mText<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mText <span class="token operator">=</span> mText<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">getImages</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mImages<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addImage</span><span class="token punctuation">(</span><span class="token class-name">String</span> img<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mImages<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 打印文档内容
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;----Word Content Start ----&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Text :&quot;</span> <span class="token operator">+</span> mText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Images List: &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> imageName <span class="token operator">:</span> mImages<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;image name: &quot;</span> <span class="token operator">+</span> imageName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;----Word Content End ----&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br></div></div><p>通过WordDocument类模拟类Word文档中的基本元素，即文字和图片。WordDocument 在该原型模式示例中扮演的角色为ConcretePrototype，而Clonebale的角色则为Prototype。WordDocument中的clone方法泳衣实现对象克隆。注意，这个方法并不是Cloneable接口中的，而是Object中的方法。Cloneable 也是一个标示接口，它表明这个类的对象是可拷贝的。如果没有实现Cloneable接口却调用了clone函数将抛出异常。在这个示例中，我们通过实现Cloneable接口和覆写clone方法实现原型模式。</p> <p>下面看看Client端的使用：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//1. 构建文档对象</span>
+        <span class="token class-name">WordDocument</span> originDoc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WordDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//2. 编辑文档，添加图片等</span>
+        originDoc<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;这是一篇文档&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        originDoc<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;图片1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        originDoc<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;图片2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        originDoc<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;图片3&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        originDoc<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 以原始文档为原型，拷贝一份副本</span>
+        <span class="token class-name">WordDocument</span> doc2 <span class="token operator">=</span> originDoc<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        doc2<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//修改文档副本，不会影响原始文档</span>
+        doc2<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;这是修改过的Doc2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        doc2<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        originDoc<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>输出结果如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>----WordDocument 构造函数----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是修改过的Doc2
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>从上图中可以看到，doc2是通过originDoc.clone()创建的，并且doc2第一次输出的时候和originDoc输出是一样的，即doc2是originDoc 的一份拷贝，他们的内容是一样的，而doc2修改了文本内容以后并不会影响originDoc 的文本内容，这就保证了originDoc的安全性。还需要注意的是，通过clone拷贝对象时并不会执行构造函数！因此，如果在构造函数中需要一些特殊的初始化操作的类型，在使用Cloneable实现拷贝时，需要注意构造函数不会执行的问题。</p> <h2 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" aria-hidden="true" class="header-anchor">#</a> 浅拷贝和深拷贝</h2> <p>上述原型模式的实现实际上只是一个浅拷贝，也称为影子拷贝，这份拷贝实际上并不是将原始文档的所有字段都重新构造了一份，而是副本文档的字段引用原始文档的字段，如下图所示：</p> <p><img src="/images/design-pattern/prototype-mode2.png" alt="prototypemode"></p> <p>我们知道A引用B就是说两个对象指向同一个地址，当修改A时B也会改变，B修改时A同样会改变。我们直接看下面的例子，将main函数的内容修改为如下：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//1. 构建文档对象</span>
+    <span class="token class-name">WordDocument</span> originDoc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WordDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//2. 编辑文档，添加图片等</span>
+    originDoc<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;这是一篇文档&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    originDoc<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;图片1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    originDoc<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;图片2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    originDoc<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;图片3&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    originDoc<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 以原始文档为原型，拷贝一份副本</span>
+    <span class="token class-name">WordDocument</span> doc2 <span class="token operator">=</span> originDoc<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    doc2<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//修改文字和图片</span>
+    doc2<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;这是修改过的Doc2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    doc2<span class="token punctuation">.</span><span class="token function">addImage</span><span class="token punctuation">(</span><span class="token string">&quot;haha.jpg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    doc2<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    originDoc<span class="token punctuation">.</span><span class="token function">showDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>输出结果如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>----WordDocument 构造函数----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是修改过的Doc2
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+image name: haha.jpg
+----Word Content End ----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+image name: haha.jpg
+----Word Content End ----
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p>细心的读者可能发现了，最后两个文档信息输出是一致的。我们在doc2添加了一张名为“haha.jpg”的图片，但是，同时也显示在originDoc中了，这是怎么回事呢？学习过C++的读者都会有比较深刻的体会，这是因为上文中WordDocument的clone方法中只是简单地进行浅拷贝，引用类型的新对象doc2的mImages只是单纯地指向了this.mImages引用，并没有重新构造一个mImages对象，然后将原始文档中的图片添加到新的mImages对象中，这样就导致doc2中的mImages与原始文档中的是同一个对象，因此修改了其中一个文档中的图片，另一个文档也会受印象。doc2的mImages添加了新的图片，实际上也就是往originDoc里添加了新的图片，所以，originDoc里面也有&quot;haha.jpg&quot;图片文件。那如何解决这个问题呢？答案就是采用深拷贝，即在拷贝对象时，对于引用型的字段也要采用拷贝的形式，而不是单纯引用的形式。clone方法修改如下：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * 克隆对象
+ */</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">protected</span> <span class="token class-name">WordDocument</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">WordDocument</span> doc <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">WordDocument</span><span class="token punctuation">)</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        doc<span class="token punctuation">.</span>mText <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mText<span class="token punctuation">;</span>
+        doc<span class="token punctuation">.</span>mImages <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span>mImages<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> doc<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>如上述代码所示，将doc.mImages指向this.mImages的一份拷贝，而不是this.mImages本身，这样在doc2添加图片时并不会影响originDoc，运行效果如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>----WordDocument 构造函数----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+----Word Content Start ----
+Text :这是修改过的Doc2
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+image name: haha.jpg
+----Word Content End ----
+----Word Content Start ----
+Text :这是一篇文档
+Images List: 
+image name: 图片1
+image name: 图片2
+image name: 图片3
+----Word Content End ----
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>原型模式是非常简单的一个模式，它的核心问题就是对原始对象进行拷贝，在这个模式的使用过程中需要注意的一点就是：深、浅拷贝的问题。在开发过程中，为了减少错误，建议大家在使用该模式时尽量使用深拷贝，避免操作副本时影响原始对象的问题。</p> <h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <p>原型模式本质上就是对象拷贝，与C++中的拷贝构造函数有些类似，他们之间容易出现的问题也都是深拷贝、浅拷贝。使用原型模式可以解决构建复杂对象的资源消耗问题，能够在某些场景下提升创建对象的效率。还有一个重要的用途就是保护性拷贝，也就是某个对象对外可能是只读的，为了防止外部对这个只读对象进行修改，通过可以通过返回一个对象拷贝的形式实现只读的限制。</p> <h3 id="优点与缺点"><a href="#优点与缺点" aria-hidden="true" class="header-anchor">#</a> 优点与缺点</h3> <p><strong>优点</strong></p> <p>原型模式是在内存中二进制流的拷贝，要不直接new一个对象性能好很多，特别是要在一个循环体内产生大量的对象时，原型模式可以更好地体现其优点。</p> <p><strong>缺点</strong></p> <p>这既是它的优点也是缺点，直接在内存中拷贝，构造函数是不会执行的，在实际开发当中应该注意这个潜在的问题。优点就是减少了约束，缺点也是减少了约束，需要大家在实际应用时考虑。</p> <div class="custom-block tip"><p>本文转载自《Android源码设计模式解析与实战》一书，手敲一遍，加深印象。<a href="https://blog.csdn.net/bboyfeiyu" target="_blank" rel="noopener noreferrer">原作者在这<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----></main> <!----> <div style="display:none;" data-v-146b4d24 data-v-146b4d24><div class="comments-wrapper" data-v-146b4d24><div class="valine-wrapper"><div id="valine"></div></div></div></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-44bd5a18 data-v-44bd5a18><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-44bd5a18><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-44bd5a18></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-44bd5a18></path></svg></div></div></div>
+    <script src="/assets/js/app.6076c5c0.js" defer></script><script src="/assets/js/3.2aa7e3c4.js" defer></script><script src="/assets/js/1.9e3813a1.js" defer></script><script src="/assets/js/13.d1ff026b.js" defer></script>
+  </body>
+</html>
